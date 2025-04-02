@@ -2,3 +2,6 @@
 microsoft-edge-policies.md
 microsoft-edge-update-policies.md
 EdgePolicyTemplates/
+MicrosoftEdgePolicyTemplates/
+microsoft-edge-edgeupdater-policies-mac.md
+microsoft-edge-webview-policies.md
