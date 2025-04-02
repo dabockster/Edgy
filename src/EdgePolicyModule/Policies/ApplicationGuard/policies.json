@@ -1,0 +1,74 @@
+{
+    "Application Guard": {
+        "ApplicationGuardContainerProxy": {
+            "type": "string",
+            "description": "Application Guard Container Proxy",
+            "GPO": {
+                "type": "string",
+                "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Application Guard\\Application Guard Container Proxy"
+            },
+            "Registry": {
+                "type": "REG_SZ",
+                "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\ApplicationGuardContainerProxy"
+            },
+            "requirements": "Microsoft Edge version 84, Windows 7 or later",
+            "description-detailed": "Configures the proxy settings for Microsoft Edge Application Guard.\nIf you enable this policy, Microsoft Edge Application Guard ignores other sources of proxy configurations.\n\nIf you don't configure this policy, Microsoft Edge Application Guard uses the proxy configuration of the host.\n\nThis policy does not affect the proxy configuration of Microsoft Edge outside of Application Guard (on the host).\n\nThe ProxyMode field lets you specify the proxy server used by Microsoft Edge Application Guard.\n\nThe ProxyPacUrl field is a URL to a proxy .pac file.\n\nThe ProxyServer field is a URL for the proxy server.\n\nIf you choose the 'direct' value as 'ProxyMode', all other fields are ignored.\n\nIf you choose the 'auto_detect' value as 'ProxyMode', all other fields are ignored.\n\nIf you choose the 'fixed_servers' value as 'ProxyMode', the 'ProxyServer' field is used.\n\nIf you choose the 'pac_script' value as 'ProxyMode', the 'ProxyPacUrl' field is used.\n\nFor more information about identifying Application Guard traffic via dual proxy, visit https://go.microsoft.com/fwlink/?linkid=2134653.\n\nExample value:\n\n{\n  \"ProxyMode\": \"direct\",\n  \"ProxyPacUrl\": \"https://internal.site/example.pac\",\n  \"ProxyServer\": \"123.123.123.123:8080\"\n}\n\nCompact example value:\n\n{\"ProxyMode\": \"direct\", \"ProxyPacUrl\": \"https://internal.site/example.pac\", \"ProxyServer\": \"123.123.123.123:8080\"}"
+        },
+        "ApplicationGuardFavoritesSyncEnabled": {
+            "type": "boolean",
+            "description": "Application Guard Favorites Sync Enabled",
+            "GPO": {
+                "type": "boolean",
+                "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Application Guard\\Application Guard Favorites Sync"
+            },
+            "Registry": {
+                "type": "REG_DWORD",
+                "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\ApplicationGuardFavoritesSyncEnabled"
+            },
+            "requirements": "Microsoft Edge version 90, Windows 7 or later",
+            "description-detailed": "This policy allows Microsoft Edge computers/devices that have application guard enabled to sync favorites from the host to the container so the favorites match.\n\nIf 'ManagedFavorites' (Configure favorites) are configured, those favorites will also be synced to the container.\n\nIf you enable this policy, editing favorites in the container is disabled. So, the add favorites and add favorites folder buttons will be blurred out in the UI of the container browser.\n\nIf you disable or don't configure this policy, favorites on the host will not be shared to the container."
+        },
+        "ApplicationGuardPassiveModeEnabled": {
+            "type": "boolean",
+            "description": "Ignore Application Guard site list configuration and browse Edge normally",
+            "GPO": {
+                "type": "boolean",
+                "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Application Guard\\Application Guard Passive Mode"
+            },
+            "Registry": {
+                "type": "REG_DWORD",
+                "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\ApplicationGuardPassiveModeEnabled"
+            },
+            "requirements": "Microsoft Edge version 94, Windows 7 or later",
+            "description-detailed": "Set whether Edge should ignore the Application Guard site list configuration for trusted and untrusted sites.\n\nIf you enable this policy, all navigations from Edge, including navigations to untrusted sites, will be accessed normally within Edge without redirecting to the Application Guard container. Note: this policy ONLY impacts Edge, so navigations from other browsers might get redirected to the Application Guard Container if you have the corresponding extensions enabled.\n\nIf you disable or don't configure this policy, Edge does not ignore the Application Guard site list. If users try to navigate to an untrusted site in the host, the site will open in the container."
+        },
+        "ApplicationGuardTrafficIdentificationEnabled": {
+            "type": "boolean",
+            "description": "Application Guard Traffic Identification",
+            "GPO": {
+                "type": "boolean",
+                "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Application Guard\\Application Guard Traffic Identification"
+            },
+            "Registry": {
+                "type": "REG_DWORD",
+                "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\ApplicationGuardTrafficIdentificationEnabled"
+            },
+            "requirements": "Microsoft Edge version 84, Windows 7 or later",
+            "description-detailed": "If you enable or don't configure this policy, Application Guard will add an extra HTTP header (X-MS-ApplicationGuard-Initiated) to all outbound HTTP requests made from the Application Guard container.\n\nIf you disable this policy, the extra header is not added to the traffic."
+        },
+        "ApplicationGuardUploadBlockingEnabled": {
+            "type": "boolean",
+            "description": "Prevents files from being uploaded while in Application Guard",
+            "GPO": {
+                "type": "boolean",
+                "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Application Guard\\Application Guard Upload Blocking"
+            },
+            "Registry": {
+                "type": "REG_DWORD",
+                "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\ApplicationGuardUploadBlockingEnabled"
+            },
+            "requirements": "Microsoft Edge version 96, Windows 7 or later",
+            "description-detailed": "Sets whether files can be uploaded while in Application Guard.\n\nIf you enable this policy, users will not be able to upload files in Application Guard.\n\nIf you disable or don't configure this policy, users will be able to upload files while in Application Guard."
+        }
+    }
+}
