@@ -1,0 +1,88 @@
+{
+    "Certificate Management": {
+        "CACertificateManagementAllowed": {
+            "type": "integer",
+            "description": "Allow users to manage installed CA certificates",
+            "GPO": {
+                "type": "integer",
+                "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Certificate management settings\\Allow users to manage installed CA certificates"
+            },
+            "Registry": {
+                "type": "REG_DWORD",
+                "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\CACertificateManagementAllowed"
+            },
+            "requirements": "Microsoft Edge version 133, Windows 7 or later",
+            "description-detailed": "Setting the policy to All (0) or leaving it unset lets users edit trust settings for all CA certificates, remove user-imported certificates, and import certificates using Certificate Manager. Setting the policy to UserOnly (1) lets users manage only user-imported certificates, but not change trust settings of built-in certificates. Setting it to None (2) lets users view (not manage) CA certificates.\n\nPolicy options mapping:\n\n* All (0) = Allow users to manage all certificates\n\n* UserOnly (1) = Allow users to manage user certificates\n\n* None (2) = Disallow users from managing certificates\n\nUse the preceding information when configuring this policy."
+        },
+        "CACertificates": {
+            "type": "string",
+            "description": "TLS server certificates that should be trusted by Microsoft Edge",
+            "GPO": {
+                "type": "string",
+                "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Certificate management settings\\TLS server certificates that should be trusted by Microsoft Edge"
+            },
+            "Registry": {
+                "type": "REG_SZ",
+                "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\CACertificates"
+            },
+            "requirements": "Microsoft Edge version 133",
+            "description-detailed": "This policy enables a list of TLS certificates that should be trusted by Microsoft Edge for server authentication.\nCertificates should be base64-encoded.\n\nExample value:\n\nMIICCTCCAY6gAwIBAgINAgPluILrIPglJ209ZjAKBggqhkjOPQQDAzBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwHhcNMTYwNjIyMDAwMDAwWhcNMzYwNjIyMDAwMDAwWjBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAQfTzOHMymKoYTey8chWEGJ6ladK0uFxh1MJ7x/JlFyb+Kf1qPKzEUURout736GjOyxfi//qXGdGIRFBEFVbivqJn+7kAHjSxm65FSWRQmx1WyRRK2EE46ajA2ADDL24CejQjBAMA4GA1UdDwEB/wQEAwIBhjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTB8Sa6oC2uhYHP0/EqEr24Cmf9vDAKBggqhkjOPQQDAwNpADBmAjEA9uEglRR7VKOQFhG/hMjqb2sXnh5GmCCbn9MN2azTL818+FsuVbu/3ZL3pAzcMeGiAjEA/JdmZuVDFhOD3cffL74UOO0BzrEXGhF16b0DjyZ+hOXJYKaV11RZt+cRLInUue4X"
+        },
+        "CACertificatesWithConstraints": {
+            "type": "multiString",
+            "description": "TLS server certificates that should be trusted by Microsoft Edge for server authentication with constraints",
+            "GPO": {
+                "type": "multiString",
+                "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Certificate management settings\\TLS server certificates that should be trusted by Microsoft Edge for server authentication with constraints"
+            },
+            "Registry": {
+                "type": "REG_MULTI_SZ",
+                "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\CACertificatesWithConstraints"
+            },
+            "requirements": "Microsoft Edge version 133, Windows 7 or later",
+            "description-detailed": "This policy enables a list of TLS certificates that should be trusted by Microsoft Edge for server authentication, with constraints added outside the certificate. If no constraint of a certain type is present, then any name of that type is allowed.\nCertificates should be base64-encoded. At least one constraint must be specified for each certificate.\n\nExample value:\n\n[\n  {\n    \"certificate\": \"MIICCTCCAY6gAwIBAgINAgPluILrIPglJ209ZjAKBggqhkjOPQQDAzBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwHhcNMTYwNjIyMDAwMDAwWhcNMzYwNjIyMDAwMDAwWjBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAQfTzOHMymKoYTey8chWEGJ6ladK0uFxh1MJ7x/JlFyb+Kf1qPKzEUURout736GjOyxfi//qXGdGIRFBEFVbivqJn+7kAHjSxm65FSWRQmx1WyRRK2EE46ajA2ADDL24CejQjBAMA4GA1UdDwEB/wQEAwIBhjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTB8Sa6oC2uhYHP0/EqEr24Cmf9vDAKBggqhkjOPQQDAwNpADBmAjEA9uEglRR7VKOQFhG/hMjqb2sXnh5GmCCbn9MN2azTL818+FsuVbu/3ZL3pAzcMeGiAjEA/JdmZuVDFhOD3cffL74UOO0BzrEXGhF16b0DjyZ+hOXJYKaV11RZt+cRLInUue4X\",\n    \"constraints\": {\n      \"permitted_dns_names\": [\n        \"example.org\"\n      ],\n      \"permitted_cidrs\": [\n        \"10.1.1.0/24\"\n      ]\n    }\n  }\n]"
+        },
+        "CADistrustedCertificates": {
+            "type": "string",
+            "description": "TLS certificates that should be distrusted by Microsoft Edge for server authentication",
+            "GPO": {
+                "type": "string",
+                "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Certificate management settings\\CA certificates that should be untrusted by Microsoft Edge"
+            },
+            "Registry": {
+                "type": "REG_SZ",
+                "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\CADistrustedCertificates"
+            },
+            "requirements": "Microsoft Edge version 133, Windows 7 or later",
+            "description-detailed": "This policy enables defining a list of certificate public keys that should be distrusted by Microsoft Edge for TLS server\nauthentication.\n\n\nThe policy value is a list of base64-encoded X.509 certificates. Any\ncertificate with a matching SPKI (SubjectPublicKeyInfo) will be distrusted.\n\n\nExample value:\n\nMIIB/TCCAaOgAwIBAgIUQthnWVsd1jWpUCNBf/uILjXC+t4wCgYIKoZIzj0EAwIwVDELMAkGA1UEBhMCVVMxETAPBgNVBAgMCFZpcmdpbmlhMQ8wDQYDVQQHDAZSZXN0b24xITAfBgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDAeFw0yMzEyMDcxNjE5NTVaFw0yMzEyMjExNjE5NTVaMFQxCzAJBgNVBAYTAlVTMREwDwYDVQQIDAhWaXJnaW5pYTEPMA0GA1UEBwwGUmVzdG9uMSEwHwYDVQQKDBhJbnRlcm5ldCBXaWRnaXRzIFB0eSBMdGQwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQ9Akav/KB0aVA9FM1QK4J1CEHn5rFOyY/nxcr5HG3\n+Fom0Kwu5zTR/kz9eOYgtG/1NmCzbiEKaULDfzA8V9aJ7o1MwUTAdBgNVHQ4EFgQUq37bLKiuw8Y/G\n+rurMf46hw7EekwHwYDVR0jBBgwFoAUq37bLKiuw8Y/G+rurMf46hw7EekwDwYDVR0TAQH/BAUwAwEB/zAKBggqhkjOPQQDAgNIADBFAiEA/JhtLSgtVOcXkgFJ9V5Vb6lhGdiKQFfzO9wTxPeCxCECIFePYPucys2n/r9MOBMHiX/8068ssv+uceqokzUg0mAb"
+        },
+        "CAHintCertificates": {
+            "type": "string",
+            "description": "TLS certificates that are not trusted or distrusted but can be used in path-building for server authentication",
+            "GPO": {
+                "type": "string",
+                "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Certificate management settings\\CA certificates that should be used as hints by Microsoft Edge"
+            },
+            "Registry": {
+                "type": "REG_SZ",
+                "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\CAHintCertificates"
+            },
+            "requirements": "Microsoft Edge version 133, Windows 7 or later",
+            "description-detailed": "This policy enables defining a list of certificates that are not trusted or distrusted in Microsoft Edge\nbut can be used as hints for path-building. Certificates should be base64-encoded.\n\nExample value:\n\nMIIFljCCA36gAwIBAgINAgO8U1lrNMcY9QFQZjANBgkqhkiG9w0BAQsFADBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjEwHhcNMjAwODEzMDAwMDQyWhcNMjcwOTMwMDAwMDQyWjBGMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzETMBEGA1UEAxMKR1RTIENBIDFDMzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPWI3+dijB43+DdCkH9sh9D7ZYIl/ejLa6T/belaI\n+KZ9hzpkgOZE3wJCor6QtZeViSqejOEH9Hpabu5dOxXTGZok3c3VVP\n+ORBNtzS7XyV3NzsXlOo85Z3VvMO0Q\n+sup0fvsEQRY9i0QYXdQTBIkxu/t/bgRQIh4JZCF8/ZK2VWNAcmBA2o/X3KLu/qSHw3TT8An4Pf73WELnlXXPxXbhqW//yMmqaZviXZf5YsBvcRKgKAgOtjGDxQSYflispfGStZloEAoPtR28p3CwvJlk/vcEnHXG0g/Zm0tOLKLnf9LdwLtmsTDIwZKxeWmLnwi/agJ7u2441Rj72ux5uxiZ0CAwEAAaOCAYAwggF8MA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQUinR/r4XN7pXNPZzQ4kYU83E1HScwHwYDVR0jBBgwFoAU5K8rJnEaK0gnhS9SZizv8IkTcT4waAYIKwYBBQUHAQEEXDBaMCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC5wa2kuZ29vZy9ndHNyMTAwBggrBgEFBQcwAoYkaHR0cDovL3BraS5nb29nL3JlcG8vY2VydHMvZ3RzcjEuZGVyMDQGA1UdHwQtMCswKaAnoCWGI2h0dHA6Ly9jcmwucGtpLmdvb2cvZ3RzcjEvZ3RzcjEuY3JsMFcGA1UdIARQME4wOAYKKwYBBAHWeQIFAzAqMCgGCCsGAQUFBwIBFhxodHRwczovL3BraS5nb29nL3JlcG9zaXRvcnkvMAgGBmeBDAECATAIBgZngQwBAgIwDQYJKoZIhvcNAQELBQADggIBAIl9rCBcDDy\n+mqhXlRu0rvqrpXJxtDaV/d9AEQNMwkYUuxQkq/BQcSLbrcRuf8/xam/IgxvYzolfh2yHuKkMo5uhYpSTld9brmYZCwKWnvy15xBpPnrLRklfRuFBsdeYTWU0AIAaP0+fbH9JAIFTQaSSIYKCGvGjRFsqUBITTcFTNvNCCK9U\n+o53UxtkOCcXCb1YyRt8OS1b887U7ZfbFAO/CVMkH8IMBHmYJvJh8VNS/UKMG2YrPxWhu//2m\n+OBmgEGcYk1KCTd4b3rGS3hSMs9WYNRtHTGnXzGsYZbr8w0xNPM1IERlQCh9BIiAfq0g3GvjLeMcySsN1PCAJA/Ef5c7TaUEDu9Ka7ixzpiO2xj2YC/WXGsYye5TBeg2vZzFb8q3o/zpWwygTMD0IZRcZk0upONXbVRWPeyk+gB9lm+cZv9TSjOz23HFtz30dZGm6fKa\n+l3D/2gthsjgx0QGtkJAITgRNOidSOzNIb2ILCkXhAd4FJGAJ2xDx8hcFH1mt0G/FX0Kw4zd8NLQsLxdxP8c4CU6x\n+7Nz/OAipmsHMdMqUybDKwjuDEI/9bfU1lcKwrmz3O2+BtjjKAvpafkmO8l7tdufThcV4q5O8DIrGKZTqPwJNl1IXNDw9bg1kWRxYtnCQ6yICmJhSFm/Y3m6xv+cXDBlHz4n/FsRC6UfTd"
+        },
+        "CAPlatformIntegrationEnabled": {
+            "type": "boolean",
+            "description": "Use user-added TLS certificates from platform trust stores for server authentication",
+            "GPO": {
+                "type": "boolean",
+                "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Certificate management settings\\Use user-added TLS certificates from platform trust stores for server authentication"
+            },
+            "Registry": {
+                "type": "REG_DWORD",
+                "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\CAPlatformIntegrationEnabled"
+            },
+            "requirements": "Microsoft Edge version 133, Windows 7 or later",
+            "description-detailed": "If enabled (or unset), user-added TLS certificates from platform trust stores will be used in path-building for TLS server authentication.\n\nIf disabled, user-added TLS certificates from platform trust stores will not be used in path-building for TLS server authentication."
+        }
+    }
+}
