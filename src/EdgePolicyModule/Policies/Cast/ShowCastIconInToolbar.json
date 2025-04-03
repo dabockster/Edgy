@@ -1,0 +1,16 @@
+{
+    "ShowCastIconInToolbar": {
+        "type": "boolean",
+        "description": "Show the cast icon in the toolbar",
+        "GPO": {
+            "type": "boolean",
+            "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Cast\\ShowCastIconInToolbar"
+        },
+        "Registry": {
+            "type": "REG_DWORD",
+            "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\ShowCastIconInToolbar"
+        },
+        "requirements": "Microsoft Edge version 77",
+        "description-detailed": "Set this policy to true to show the Cast toolbar icon on the toolbar or the overflow menu. Users won't be able to remove it.\n\nIf you don't configure this policy or if you disable it, users can pin or remove the icon by using its contextual menu.\n\nIf you've also set the 'EnableMediaRouter' (Enable Google Cast) policy to false, then this policy is ignored, and the toolbar icon isn't shown."
+    }
+}

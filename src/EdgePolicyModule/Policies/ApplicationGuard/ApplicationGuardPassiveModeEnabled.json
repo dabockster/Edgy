@@ -1,0 +1,16 @@
+{
+    "ApplicationGuardPassiveModeEnabled": {
+        "type": "boolean",
+        "description": "Ignore Application Guard site list configuration and browse Edge normally",
+        "GPO": {
+            "type": "boolean",
+            "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Application Guard\\Application Guard Passive Mode"
+        },
+        "Registry": {
+            "type": "REG_DWORD",
+            "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\ApplicationGuardPassiveModeEnabled"
+        },
+        "requirements": "Microsoft Edge version 94, Windows 7 or later",
+        "description-detailed": "Set whether Edge should ignore the Application Guard site list configuration for trusted and untrusted sites.\n\nIf you enable this policy, all navigations from Edge, including navigations to untrusted sites, will be accessed normally within Edge without redirecting to the Application Guard container. Note: this policy ONLY impacts Edge, so navigations from other browsers might get redirected to the Application Guard Container if you have the corresponding extensions enabled.\n\nIf you disable or don't configure this policy, Edge does not ignore the Application Guard site list. If users try to navigate to an untrusted site in the host, the site will open in the container."
+    }
+}

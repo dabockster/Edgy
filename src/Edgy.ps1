@@ -106,7 +106,7 @@ function Clean-Uninstall {
 function Enable-Disable-Policies {
     Clear-Host
     Write-Host "`nENABLE/DISABLE POLICIES"
-    Write-Host "==================="
+    Write-Host "========================="
     
     if (Test-Path $POLICY_PATH) {
         $policies = Get-ChildItem $POLICY_PATH

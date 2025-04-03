@@ -1,0 +1,16 @@
+{
+    "CADistrustedCertificates": {
+        "type": "string",
+        "description": "TLS certificates that should be distrusted by Microsoft Edge for server authentication",
+        "GPO": {
+            "type": "string",
+            "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Certificate management settings\\CA certificates that should be untrusted by Microsoft Edge"
+        },
+        "Registry": {
+            "type": "REG_SZ",
+            "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\CADistrustedCertificates"
+        },
+        "requirements": "Microsoft Edge version 133, Windows 7 or later",
+        "description-detailed": "This policy enables defining a list of certificate public keys that should be distrusted by Microsoft Edge for TLS server\nauthentication.\n\n\nThe policy value is a list of base64-encoded X.509 certificates. Any\ncertificate with a matching SPKI (SubjectPublicKeyInfo) will be distrusted.\n\n\nExample value:\n\nMIIB/TCCAaOgAwIBAgIUQthnWVsd1jWpUCNBf/uILjXC+t4wCgYIKoZIzj0EAwIwVDELMAkGA1UEBhMCVVMxETAPBgNVBAgMCFZpcmdpbmlhMQ8wDQYDVQQHDAZSZXN0b24xITAfBgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDAeFw0yMzEyMDcxNjE5NTVaFw0yMzEyMjExNjE5NTVaMFQxCzAJBgNVBAYTAlVTMREwDwYDVQQIDAhWaXJnaW5pYTEPMA0GA1UEBwwGUmVzdG9uMSEwHwYDVQQKDBhJbnRlcm5ldCBXaWRnaXRzIFB0eSBMdGQwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQ9Akav/KB0aVA9FM1QK4J1CEHn5rFOyY/nxcr5HG3\n+Fom0Kwu5zTR/kz9eOYgtG/1NmCzbiEKaULDfzA8V9aJ7o1MwUTAdBgNVHQ4EFgQUq37bLKiuw8Y/G\n+rurMf46hw7EekwHwYDVR0jBBgwFoAUq37bLKiuw8Y/G+rurMf46hw7EekwDwYDVR0TAQH/BAUwAwEB/zAKBggqhkjOPQQDAgNIADBFAiEA/JhtLSgtVOcXkgFJ9V5Vb6lhGdiKQFfzO9wTxPeCxCECIFePYPucys2n/r9MOBMHiX/8068ssv+uceqokzUg0mAb"
+    }
+}

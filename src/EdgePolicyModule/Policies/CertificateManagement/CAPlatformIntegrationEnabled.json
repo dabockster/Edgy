@@ -1,0 +1,16 @@
+{
+    "CAPlatformIntegrationEnabled": {
+        "type": "boolean",
+        "description": "Use user-added TLS certificates from platform trust stores for server authentication",
+        "GPO": {
+            "type": "boolean",
+            "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Certificate management settings\\Use user-added TLS certificates from platform trust stores for server authentication"
+        },
+        "Registry": {
+            "type": "REG_DWORD",
+            "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\CAPlatformIntegrationEnabled"
+        },
+        "requirements": "Microsoft Edge version 133, Windows 7 or later",
+        "description-detailed": "If enabled (or unset), user-added TLS certificates from platform trust stores will be used in path-building for TLS server authentication.\n\nIf disabled, user-added TLS certificates from platform trust stores will not be used in path-building for TLS server authentication."
+    }
+}

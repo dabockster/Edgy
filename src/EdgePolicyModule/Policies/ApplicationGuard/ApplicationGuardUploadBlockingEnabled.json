@@ -1,0 +1,16 @@
+{
+    "ApplicationGuardUploadBlockingEnabled": {
+        "type": "boolean",
+        "description": "Prevents files from being uploaded while in Application Guard",
+        "GPO": {
+            "type": "boolean",
+            "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Application Guard\\Application Guard Upload Blocking"
+        },
+        "Registry": {
+            "type": "REG_DWORD",
+            "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\ApplicationGuardUploadBlockingEnabled"
+        },
+        "requirements": "Microsoft Edge version 96, Windows 7 or later",
+        "description-detailed": "Sets whether files can be uploaded while in Application Guard.\n\nIf you enable this policy, users will not be able to upload files in Application Guard.\n\nIf you disable or don't configure this policy, users will be able to upload files while in Application Guard."
+    }
+}

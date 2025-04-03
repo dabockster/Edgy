@@ -1,0 +1,16 @@
+{
+    "ApplicationGuardTrafficIdentificationEnabled": {
+        "type": "boolean",
+        "description": "Application Guard Traffic Identification",
+        "GPO": {
+            "type": "boolean",
+            "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Application Guard\\Application Guard Traffic Identification"
+        },
+        "Registry": {
+            "type": "REG_DWORD",
+            "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\ApplicationGuardTrafficIdentificationEnabled"
+        },
+        "requirements": "Microsoft Edge version 84, Windows 7 or later",
+        "description-detailed": "If you enable or don't configure this policy, Application Guard will add an extra HTTP header (X-MS-ApplicationGuard-Initiated) to all outbound HTTP requests made from the Application Guard container.\n\nIf you disable this policy, the extra header is not added to the traffic."
+    }
+}

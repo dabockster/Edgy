@@ -1,0 +1,16 @@
+{
+    "EdgeDisableDialProtocolForCastDiscovery": {
+        "type": "boolean",
+        "description": "Disable DIAL protocol for cast device discovery",
+        "GPO": {
+            "type": "boolean",
+            "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Cast\\EdgeDisableDialProtocolForCastDiscovery"
+        },
+        "Registry": {
+            "type": "REG_DWORD",
+            "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\EdgeDisableDialProtocolForCastDiscovery"
+        },
+        "requirements": "Microsoft Edge version 121",
+        "description-detailed": "Enable this policy to disable the DIAL (Discovery And Launch) protocol for cast device discovery. (If EnableMediaRouter is disabled, this policy will have no effect).\n\nEnable this policy to disable DIAL protocol.\nBy default, Cast device discovery will use DIAL protocol."
+    }
+}

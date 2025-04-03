@@ -1,0 +1,16 @@
+{
+    "EnableMediaRouter": {
+        "type": "boolean",
+        "description": "Enable Google Cast",
+        "GPO": {
+            "type": "boolean",
+            "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Cast\\EnableMediaRouter"
+        },
+        "Registry": {
+            "type": "REG_DWORD",
+            "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\EnableMediaRouter"
+        },
+        "requirements": "Microsoft Edge version 77",
+        "description-detailed": "Enable this policy to enable Google Cast. Users will be able to launch it from the app menu, page context menus, media controls on Cast-enabled websites, and (if shown) the Cast toolbar icon.\n\nDisable this policy to disable Google Cast.\nBy default, Google Cast is enabled."
+    }
+}

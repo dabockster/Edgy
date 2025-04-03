@@ -1,0 +1,16 @@
+{
+    "CACertificateManagementAllowed": {
+        "type": "integer",
+        "description": "Allow users to manage installed CA certificates",
+        "GPO": {
+            "type": "integer",
+            "path": "Computer Configuration\\Administrative Templates\\Microsoft Edge\\Certificate management settings\\Allow users to manage installed CA certificates"
+        },
+        "Registry": {
+            "type": "REG_DWORD",
+            "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Edge\\CACertificateManagementAllowed"
+        },
+        "requirements": "Microsoft Edge version 133, Windows 7 or later",
+        "description-detailed": "Setting the policy to All (0) or leaving it unset lets users edit trust settings for all CA certificates, remove user-imported certificates, and import certificates using Certificate Manager. Setting the policy to UserOnly (1) lets users manage only user-imported certificates, but not change trust settings of built-in certificates. Setting it to None (2) lets users view (not manage) CA certificates.\n\nPolicy options mapping:\n\n* All (0) = Allow users to manage all certificates\n\n* UserOnly (1) = Allow users to manage user certificates\n\n* None (2) = Disallow users from managing certificates\n\nUse the preceding information when configuring this policy."
+    }
+}
