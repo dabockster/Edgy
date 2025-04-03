@@ -124,23 +124,37 @@ function Enable-Disable-Policies {
         Write-Host "No policies are currently enabled."
     }
     
-    Write-Host "`nPlease select a policy to enable/disable: " -NoNewline
-    $policySelection = Read-Host
-    
-    if (Test-Path (Join-Path $POLICY_PATH $policySelection)) {
-        $value = Get-EdgePolicy -PolicyName $policySelection
-        if ($value -eq 1) {
-            Set-EdgePolicy -PolicyName $policySelection -Value 0
-            Write-Host "`nPolicy $policySelection has been disabled."
+    do {
+        Write-Host "`nPlease select a policy to enable/disable (or enter '0' to return to main menu): " -NoNewline
+        $policySelection = Read-Host
+        
+        if ($policySelection -eq '0') {
+            return
+        }
+        
+        if (-not $policySelection) {
+            Write-Host "`nError: Please enter a policy name or '0' to return to main menu."
+            Start-Sleep -Seconds 1
+            continue
+        }
+        
+        if (Test-Path (Join-Path $POLICY_PATH $policySelection)) {
+            $value = Get-EdgePolicy -PolicyName $policySelection
+            if ($value -eq 1) {
+                Set-EdgePolicy -PolicyName $policySelection -Value 0
+                Write-Host "`nPolicy $policySelection has been disabled."
+            }
+            else {
+                Set-EdgePolicy -PolicyName $policySelection -Value 1
+                Write-Host "`nPolicy $policySelection has been enabled."
+            }
+            break
         }
         else {
-            Set-EdgePolicy -PolicyName $policySelection -Value 1
-            Write-Host "`nPolicy $policySelection has been enabled."
+            Write-Host "`nError: Policy '$policySelection' not found. Please try again."
+            Start-Sleep -Seconds 1
         }
-    }
-    else {
-        Write-Host "`nPolicy $policySelection not found."
-    }
+    } while ($true)
     
     Write-Host "Press any key to return to main menu..."
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
